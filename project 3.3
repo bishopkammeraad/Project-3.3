@@ -1,0 +1,45 @@
+def IDCheck(aDictionary, aCustomerIDKey):
+    if aCustomerIDKey in aDictionary:
+        return True
+    else:
+        return False
+
+if __name__ == '__main__':
+    rewardsDictionary = {
+        2569: ['Charles Babbage', 8, 12, 218378], 
+        1580: ['Ada Lovelace', 5, 2, 96207], 
+        2241: ['Katherine Johnson', 1, 8, 47133], 
+        7830: ['George Boole', 22, 25, 8875], 
+        5411: ['Grace Hopper', 15, 7, 35002], 
+        2298: ['Herman Hollerith', 0, 0, 162238], 
+        8324: ['Kathleen Booth', 12, 14, 44133], 
+        3309: ['Tim Berners-Lee', 2, 3, 280], 
+        5678: ['Anita Borg', 3, 15, 52758], 
+        2099: ['John Backus', 6, 35, 42031], 
+        7166: ['Donald Knuth', 18, 10, 5600]
+        }
+
+    ''' Do not change any of the code on lines 3 - 16. You can add code above line 3. '''
+
+    user_input = int(input('Enter a valid ID number, or -1 to quit for the day:\n'))
+    while user_input != -1:
+        if IDCheck(rewardsDictionary,user_input):
+            list_id = rewardsDictionary[user_input]
+            format_string = '{name:<20}{bishop:>8}'
+            print('Welcome, {}!'.format(rewardsDictionary[user_input][0]))
+            print('Here are your earned purchases so far:')
+            print(format_string.format(name='   Number of Drinks:', bishop=rewardsDictionary[user_input][1]))
+            print(format_string.format(name='   Number of Chips:', bishop=rewardsDictionary[user_input][2]))
+            print(format_string.format(name='   Number of Points:', bishop=rewardsDictionary[user_input][3]))
+            print('')
+            customer_reward = int(input('Enter a number to Choose a reward: '))
+            print('')
+            print('')
+            print('(1) for a Free Drink')
+            print('(2) for a Free Bag of Chips')
+            print ('(3) for a $25 gift card')
+            print('(4) None - I just wanted to check my points')
+            print('')
+        else:
+            print('Error: Customer ID', user_input, 'is not valid')
+        user_input = int(input('Enter a valid ID number, or -1 to quit for the day:\n'))
